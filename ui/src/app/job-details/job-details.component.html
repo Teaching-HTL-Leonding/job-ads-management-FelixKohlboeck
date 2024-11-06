@@ -1,0 +1,37 @@
+<button (click)="backToJobPage()">Back to Job Page</button>
+<div class="BigForm" *ngIf="jobAd()">
+  <h1>{{ jobAd()?.title }}</h1>
+
+  <p class="Ad" *ngIf="!isEditing()">{{ jobAd()?.textEN }}</p>
+
+  <textarea *ngIf="isEditing()" [(ngModel)]="editableTextEN"></textarea>
+
+  <button *ngIf="!isEditing()" (click)="editJob()">Bearbeiten</button>
+
+  <button *ngIf="isEditing()" (click)="saveJob()">Speichern</button>
+
+
+  <!-- Alle vorhandenen Übersetzungen anzeigen -->
+  <div *ngFor="let translation of AllTranslations()">
+    <p>{{ translation.language }}: {{ translation.translatedText }}</p>
+  </div>
+
+  <!-- Formular zum Hinzufügen einer neuen Übersetzung -->
+  <form (submit)="submitTranslation(); $event.preventDefault()">
+    <label>Neue Sprache</label>
+    <input type="text" [(ngModel)]="newLanguage" name="newLanguage" />
+
+    <label>Neue Übersetzung</label>
+    <textarea [(ngModel)]="newTranslatedText" name="newTranslatedText"></textarea>
+
+    <button type="submit">Übersetzung hinzufügen</button>
+    <button (click)="autoTranslate()">Auto Übersetzer</button>
+  </form>
+
+  <form (submit)="deleteTranslation()">
+    <label>Sprache dir gelöscht werden soll</label>
+    <input type="text" [(ngModel)]="deleteLanguage" name="deleteLanguage" />
+
+    <button type="submit">Löschen</button>
+  </form>
+</div>

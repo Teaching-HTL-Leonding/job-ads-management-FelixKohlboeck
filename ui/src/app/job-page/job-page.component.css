@@ -1,0 +1,48 @@
+
+div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(to right, #6464c7, #6b99cb, #78d3c8);
+  border-radius: 30px;
+  margin-top: 50px;
+}
+
+button{
+  border-radius: 0px;
+  border-color: rgba(70, 164, 156, 0);
+  background-color: rgba(0, 86, 179, 0);
+  margin-left: 10px;
+  transition: 0.5s;
+  color: #000000;
+  font-size: 25px;
+}
+
+button:hover{
+  background-color: rgba(255, 255, 255, 0.31);
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+h1{
+  margin-bottom: 20px;
+  font-family: "Dubai Medium";
+  font-size: 50px;
+  color: #000000;
+}
+
+h2{
+  margin-bottom: 10px;
+  font-size: 70px;
+  font-family: Bahnschrift;
+  transition: 0.5s;
+}
+
+h2:hover{
+  color: #46a499;
+  transition: 0.5s;
+}
+
+
+

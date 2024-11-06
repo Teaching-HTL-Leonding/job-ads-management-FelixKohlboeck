@@ -1,0 +1,71 @@
+textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(to right, #6464c7, #6b99cb, #78d3c8);
+  border-radius: 30px;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+button {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: rgba(0, 86, 179, 0.1);
+  margin-left: 10px;
+  transition: 0.5s;
+  color: #000000;
+  font-size: 20px;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.31);
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 50px;
+  font-family: Bahnschrift;
+  transition: 0.5s;
+}
+
+h1:hover {
+  color: #46a499;
+  transition: 0.5s;
+}
+
+p {
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-family: Bahnschrift;
+  transition: 0.5s;
+  text-shadow: 2px 2px 4px rgba(28, 28, 28, 0.74);
+}
+
+.translation-item {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.translation-form {
+  width: 80%;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
