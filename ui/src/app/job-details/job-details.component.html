@@ -1,6 +1,8 @@
 <button (click)="backToJobPage()">Back to Job Page</button>
 <div class="BigForm" *ngIf="jobAd()">
-  <h1>{{ jobAd()?.title }}</h1>
+  <h1 *ngIf="!isEditing()">{{ jobAd()?.title }}</h1>
+
+  <textarea *ngIf="isEditing()" [(ngModel)]="editableTitel"></textarea>
 
   <p class="Ad" *ngIf="!isEditing()">{{ jobAd()?.textEN }}</p>
 

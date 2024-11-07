@@ -1,8 +1,6 @@
-<h1>{{ title }}</h1>
-<div *ngFor="let job of jobAds(); let i = index" class="job-item">
-  <h2>{{ job.title }}</h2>
-  <!--<p>{{ job.textEN }}</p>-->
-  <!-- Delete Button für jeden Job -->
-  <button (click)="deleteJob(job.id)">Delete Job</button>
-  <button (click)="viewJobDetails(job.id)">View Job</button>
+<h1>{{title}}</h1>
+<div *ngFor="let jobs of jobAds(); let i = index" class="job-Item">
+  <h2>{{jobs.title}}</h2>
+  <button (click)="viewJobDetails(jobs.id)">View Details</button>
+  <button (click)="deleteJob(jobs.id)">Delete</button>
 </div>

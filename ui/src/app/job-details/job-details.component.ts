@@ -34,12 +34,13 @@ export class JobDetailsComponent {
   newLanguage = signal<string>('');
   newTranslatedText = signal<string>('');
   deleteLanguage = signal<string>('')
+  editableTitel: string = '';
 
 
   constructor(
-    private route: ActivatedRoute,
-    private jobService: JobService,
-    private router: Router
+    private readonly route: ActivatedRoute,
+    private readonly jobService: JobService,
+    private readonly router: Router
   ) {
     const idParam = this.route.snapshot?.paramMap.get('id');
     this.id = idParam ? +idParam : 0;
@@ -48,7 +49,7 @@ export class JobDetailsComponent {
 
   async getJobDetails() {
       const response: Jobs = await this.jobService.getJobById(this.id);
-      this.jobAd.set(response ? response : null);
+      this.jobAd.set(response || null);
 
       const translation = response?.translations.find(t => t.language === 'DE');
       if (translation) {
@@ -65,6 +66,7 @@ export class JobDetailsComponent {
   editJob() {
     this.isEditing.set(true);
     this.editableTextEN = this.jobAd()?.textEN || '';
+    this.editableTitel = this.jobAd()?.title || '';
   }
 
   saveJob() {
@@ -72,11 +74,12 @@ export class JobDetailsComponent {
     this.jobAd.update(job => {
       if (job) {
         job.textEN = this.editableTextEN;
+        job.title = this.editableTitel;
         return job;
       }
       return null;
     });
-    this.jobService.updateJob(this.id, this.editableTextEN);
+    this.jobService.updateJob(this.id, this.editableTextEN, this.editableTitel);
   }
 
   backToJobPage() {

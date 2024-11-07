@@ -33,9 +33,10 @@ export class JobService {
     );
   }
 
-  updateJob(id: number, editableTextEN: string) {
+  updateJob(id: number, editableTextEN: string, editableTitel: string) {
+    console.log(editableTitel);
     return firstValueFrom(
-      this.httpClient.patch(`http://localhost:3000/ads/${id}`, { textEN: editableTextEN })
+      this.httpClient.patch(`http://localhost:3000/ads/${id}`, {title: editableTitel, textEN: editableTextEN })
     );
   }
 

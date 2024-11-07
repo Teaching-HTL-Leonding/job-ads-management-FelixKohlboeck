@@ -23,7 +23,7 @@ export class JobPageComponent {
   title = 'job-ads';
   jobAds = signal<Jobs[]>([]);
 
-  constructor(private jobService: JobService, private router: Router) {
+  constructor(private readonly jobService: JobService, private readonly router: Router) {
     this.getJobs();
   }
 
@@ -34,7 +34,7 @@ export class JobPageComponent {
   }
 
   viewJobDetails(id: number) {
-    this.router.navigate([`/JobAds/${id}`]); // Navigiert zu JobDetailsComponent mit der Job-ID
+    this.router.navigate([`/JobAds/${id}`]);
   }
 
   deleteJob(id: number) {
